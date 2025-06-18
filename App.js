@@ -1,20 +1,53 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from "react";
+import { SafeAreaView } from "react-native";
+import WelcomeScreen from "./screens/WelcomeScreen";
+import SetupScreen from "./screens/SetupScreen";
+import GameScreen from "./screens/GameScreen";
 
-export default function App() {
+const App = () => {
+  const [setupStep, setSetupStep] = useState(0);
+  const [gameState, setGameState] = useState({
+    pCount: 2,
+    pNames: [],
+    pCodes: [],
+    gameStarted: false,
+    gameOver: false,
+    rounds: 0,
+  });
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={{ flex: 1 }}>
+      {setupStep === 0 ? (
+        <WelcomeScreen
+          onStart={() => setSetupStep(1)}
+          onShowRules={() => setShowRules(true)}
+        />
+      ) : setupStep < 4 ? (
+        <SetupScreen
+          setupStep={setupStep}
+          setSetupStep={setSetupStep}
+          gameState={gameState}
+          setGameState={setGameState}
+        />
+      ) : (
+        <GameScreen
+          gameState={gameState}
+          setGameState={setGameState}
+          onExit={() => {
+            setSetupStep(0);
+            setGameState({
+              pCount: 2,
+              pNames: [],
+              pCodes: [],
+              gameStarted: false,
+              gameOver: false,
+              rounds: 0,
+            });
+          }}
+        />
+      )}
+    </SafeAreaView>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;

@@ -1,0 +1,120 @@
+import { StyleSheet } from "react-native";
+import { BOARD_COLORS } from "../constants/colors";
+
+export const setupStyles = StyleSheet.create({
+  setupContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 20,
+    position: "relative",
+  },
+  backButton: {
+    position: "absolute",
+    top: 70,
+    left: 20,
+    padding: 10,
+    zIndex: 10,
+  },
+  backButtonText: {
+    fontSize: 16,
+    color: BOARD_COLORS.text,
+    fontWeight: "bold",
+    padding: 10,
+    backgroundColor: BOARD_COLORS.accent,
+    borderRadius: 10,
+  },
+  playerCountContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    flexWrap: "wrap",
+    marginBottom: 30,
+  },
+  playerCountButton: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    backgroundColor: "#e0e0e0",
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 10,
+    elevation: 3,
+  },
+  playerCountButtonSelected: {
+    backgroundColor: BOARD_COLORS.accent,
+  },
+  playerCountText: {
+    fontSize: 30,
+    fontWeight: "bold",
+    color: BOARD_COLORS.text,
+  },
+  welcomeContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 20,
+    position: "relative",
+  },
+  logo: {
+    width: "70%",
+    height: "30%",
+    marginBottom: 40,
+  },
+  welcomeButton: {
+    backgroundColor: BOARD_COLORS.accent,
+    paddingVertical: 15,
+    paddingHorizontal: 40,
+    borderRadius: 25,
+    marginVertical: 10,
+    width: "70%",
+    elevation: 3,
+  },
+  welcomeButtonText: {
+    color: "white",
+    fontSize: 18,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  copyrightText: {
+    position: "absolute",
+    bottom: 60,
+    color: BOARD_COLORS.text,
+    fontSize: 12,
+    textAlign: "center",
+    width: "100%",
+    opacity: 0.7,
+  },
+  rulesModal: {
+    backgroundColor: "#fff5e9",
+    padding: 20,
+    borderRadius: 10,
+    width: "90%",
+    maxHeight: "80%",
+  },
+  rulesContent: {
+    marginBottom: 20,
+  },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: BOARD_COLORS.text,
+    marginTop: 15,
+    marginBottom: 5,
+  },
+  ruleText: {
+    fontSize: 16,
+    marginVertical: 5,
+    color: BOARD_COLORS.text,
+  },
+  closeButton: {
+    backgroundColor: BOARD_COLORS.accent,
+    padding: 15,
+    borderRadius: 10,
+    marginTop: 10,
+  },
+  closeButtonText: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+});
